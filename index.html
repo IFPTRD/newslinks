@@ -53,6 +53,35 @@
     
     header {
       margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .home-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 8px 12px;
+      background-color: var(--dark-blue);
+      color: white;
+      border-radius: var(--border-radius-sm);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: var(--transition-default);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .home-link:hover {
+      background-color: var(--primary-blue);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .home-link svg {
+      width: 16px;
+      height: 16px;
     }
     
     h1 {
@@ -313,12 +342,25 @@
       .federal-links a {
         width: 100%;
       }
+      
+      .home-link {
+        position: relative;
+        display: inline-flex;
+        margin-bottom: 15px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
+      <a href="https://ifptrd.github.io" class="home-link" aria-label="Go to home page">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        Home
+      </a>
       <h1>Health News</h1>
       <div class="link-labels">
         <div class="link-label"><span class="link-dot dot-google"></span> External Sources</div>
@@ -476,47 +518,4 @@
             <td class="province-name">Northwest Territories</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=northwest%20territories%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" class="google-link" aria-label="Northwest Territories health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=northwest%20territories%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" class="google-link" aria-label="Northwest Territories health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=northwest%20territories%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" class="google-link" aria-label="Northwest Territories health news from the last 30 days">30 Days</a>
-                <a href="https://www.gov.nt.ca/en/newsroom?f%5B0%5D=field_news_department%3A91" target="_blank" class="official-link" aria-label="Northwest Territories government news">Government News</a>
-                <a href="https://www.nthssa.ca/en/newsroom" target="_blank" class="official-link" aria-label="Northwest Territories Health and Social Services Authority news">Health Authority</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="province-name">Nunavut</td>
-            <td>
-              <div class="links-container">
-                <a href="https://news.google.com/search?q=nunavut%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" class="google-link" aria-label="Nunavut health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=nunavut%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" class="google-link" aria-label="Nunavut health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=nunavut%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" class="google-link" aria-label="Nunavut health news from the last 30 days">30 Days</a>
-                <a href="https://www.gov.nu.ca/en/newsroom" target="_blank" class="official-link" aria-label="Nunavut government news">Government News</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="province-name">Canada</td>
-            <td>
-              <div class="links-container">
-                <a href="https://news.google.com/search?q=canada%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" class="google-link" aria-label="Canada health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=canada%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" class="google-link" aria-label="Canada health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=canada%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" class="google-link" aria-label="Canada health news from the last 30 days">30 Days</a>
-                <a href="https://www.canada.ca/en/news.html" target="_blank" class="official-link" aria-label="Government of Canada news">Government of Canada News</a>
-                <a href="https://www.canada.ca/en/news/advanced-news-search/news-results.html?_=1716399320637&dprtmnt=publichealthagencyofcanada&start&end" target="_blank" class="official-link" aria-label="Public Health Agency of Canada news">Public Health Agency News</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </main>
-    
-    <footer class="footer">
-      <p>This dashboard provides quick access to health news across Canada from both official government sources and general news coverage.</p>
-      <div class="last-updated">Last updated: March 14, 2025</div>
-      <!-- Adding a clearfix to ensure the footer displays properly -->
-      <div style="clear: both;"></div>
-    </footer>
-  </div>
-</body>
-</html>
+                <a href="https://news.google.com/search?q=northwest%20territories%20health%20when%3A
