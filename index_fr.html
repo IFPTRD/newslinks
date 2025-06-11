@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nouvelles sur la santé</title>
+  <style>
+    :root {
+      --primary-blue: #3498db;
+      --dark-blue: #2c3e50;
+      --light-blue: #f1f9ff;
+      --primary-green: #27ae60;
+      --light-green: #e8f8f5;
+      --background-gray: #f5f7fa;
+      --table-alt-row: #f2f6fa;
+      --table-hover: #edf5fa;
+      --border-light: #eaeaea;
+      --text-dark: #333;
+      --text-light: #7f8c8d;
+      --accent-red: #e74c3c;
+      --accent-red-dark: #c0392b;
+      --border-radius-sm: 6px;
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 4px 8px rgba(52, 152, 219, 0.3);
+      --transition-default: all 0.3s ease;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-gray);
+      color: var(--text-dark);
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.5;
+    }
+    .container {
+      background-color: white;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: 10px 25px 15px;
+      position: relative;
+    }
+    header {
+      margin-bottom: 15px;
+      position: relative;
+    }
+    .home-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 10;
+      background-color: var(--primary-blue);
+      color: white;
+      border-radius: var(--border-radius-sm);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-default);
+    }
+    .home-button:hover {
+      background-color: var(--dark-blue);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .home-icon {
+      width: 16px;
+      height: 16px;
+    }
+    h1 {
+      color: var(--dark-blue);
+      text-align: center;
+      margin-bottom: 12px;
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 8px;
+      margin-top: 0;
+      font-size: 2rem;
+    }
+    h1:after {
+      content: '';
+      position: absolute;
+      width: 230px;
+      height: 2px;
+      background-color: var(--accent-red);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .federal-section {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: var(--border-radius-md);
+      border-left: 4px solid var(--accent-red-dark);
+      box-shadow: var(--shadow-sm);
+    }
+    .federal-section h2 {
+      margin-top: 0;
+      color: var(--accent-red-dark);
+      font-size: 1.3rem;
+    }
+    .federal-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .federal-links a {
+      flex: 1;
+      min-width: 200px;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: var(--dark-blue);
+      color: white;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+      padding: 14px 12px;
+    }
+    th:first-child {
+      border-top-left-radius: var(--border-radius-md);
+    }
+    th:last-child {
+      border-top-right-radius: var(--border-radius-md);
+    }
+    tr:nth-child(even) {
+      background-color: var(--table-alt-row);
+    }
+    tr:hover {
+      background-color: var(--table-hover);
+      transition: background-color 0.2s ease;
+    }
+    tr:last-child td:first-child {
+      border-bottom-left-radius: var(--border-radius-md);
+    }
+    tr:last-child td:last-child {
+      border-bottom-right-radius: var(--border-radius-md);
+    }
+    td {
+      border-bottom: 1px solid var(--border-light);
+    }
+    .province-name {
+      font-weight: 600;
+      color: var(--dark-blue);
+      width: 25%;
+      font-size: 15px;
+    }
+    .links-container {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    a {
+      color: var(--primary-blue);
+      text-decoration: none;
+      display: inline-block;
+      padding: 6px 10px;
+      background-color: var(--light-blue);
+      border-radius: var(--border-radius-sm);
+      border: 1px solid #d6eaf8;
+      transition: var(--transition-default);
+      font-size: 13px;
+      margin-bottom: 4px;
+      min-width: 110px;
+      text-align: center;
+      font-weight: 500;
+    }
+    a:hover, a:focus {
+      background-color: var(--primary-blue);
+      color: white;
+      border-color: var(--primary-blue);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .official-link {
+      background-color: var(--light-green);
+      border-color: #d0ece7;
+    }
+    .official-link:hover, .official-link:focus {
+      background-color: var(--primary-green);
+      border-color: var(--primary-green);
+    }
+    .google-link {
+      background-color: var(--light-blue);
+      border-color: #d6eaf8;
+    }
+    .health-authority {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+    .last-updated {
+      font-style: italic;
+      text-align: right;
+      margin-top: 15px;
+      font-size: 13px;
+      color: var(--text-light);
+      background-color: #f8f9fa;
+      padding: 8px 12px;
+      border-radius: var(--border-radius-sm);
+      display: block;
+    }
+    .link-labels {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-end;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      background-color: #f8f9fa;
+      padding: 4px 10px;
+      border-radius: var(--border-radius-sm);
+    }
+    .link-label {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+    }
+    .link-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .dot-google {
+      background-color: var(--primary-blue);
+    }
+    .dot-official {
+      background-color: var(--primary-green);
+    }
+    @media (max-width: 768px) {
+      .province-name {
+        width: 100%;
+        font-size: 16px;
+        padding-bottom: 0;
+        background-color: #f4f8fb;
+        border-left: 4px solid var(--primary-blue);
+      }
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 10px;
+      }
+      table, tr, td {
+        display: block;
+      }
+      th {
+        display: none;
+      }
+      tr {
+        margin-bottom: 15px;
+        border-radius: var(--border-radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+      }
+      .links-container {
+        padding-top: 3px;
+      }
+      a {
+        min-width: 140px;
+      }
+      .federal-links {
+        flex-direction: column;
+      }
+      .federal-links a {
+        width: 100%;
+      }
+      .home-button {
+        top: 5px;
+        left: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="https://ifptrd.github.io" class="home-button" title="Accueil" aria-label="Aller à la page d'accueil">
+        <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </a>
+      <h1>Nouvelles sur la santé</h1>
+      <div class="link-labels">
+        <div class="link-label"><span class="link-dot dot-google"></span> Sources externes</div>
+        <div class="link-label"><span class="link-dot dot-official"></span> Sources officielles</div>
+      </div>
+    </header>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Juridiction</th>
+            <th>Sources de nouvelles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="province-name">Colombie-Britannique</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20colombie-britannique%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Colombie-Britannique des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20colombie-britannique%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Colombie-Britannique des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20colombie-britannique%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Colombie-Britannique des 30 derniers jours">30 jours</a>
+                <a href="https://news.gov.bc.ca" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement de la Colombie-Britannique">Nouvelles du gouvernement</a>
+                <a href="http://www.phsa.ca/about/news-stories/news-releases/2025-news" target="_blank" class="official-link" aria-label="Nouvelles de la Provincial Health Services Authority">PHSA</a>
+                <a href="https://www.vch.ca/en/about-us/media-centre/news" target="_blank" class="official-link" aria-label="Nouvelles de Vancouver Coastal Health">Vancouver Coastal</a>
+                <a href="https://www.islandhealth.ca/news" target="_blank" class="official-link" aria-label="Nouvelles d'Island Health">Island Health</a>
+                <a href="https://www.interiorhealth.ca/stories" target="_blank" class="official-link" aria-label="Nouvelles d'Interior Health">Interior Health</a>
+                <a href="https://www.northernhealth.ca/newsroom" target="_blank" class="official-link" aria-label="Nouvelles de Northern Health">Northern Health</a>
+                <a href="https://www.fraserhealth.ca/news" target="_blank" class="official-link" aria-label="Nouvelles de Fraser Health">Fraser Health</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Alberta</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20alberta%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Alberta des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20alberta%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Alberta des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20alberta%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Alberta des 30 derniers jours">30 jours</a>
+                <a href="https://www.alberta.ca/news" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement de l'Alberta">Nouvelles du gouvernement</a>
+                <a href="https://www.albertahealthservices.ca/news/newsreleases.aspx" target="_blank" class="official-link" aria-label="Nouvelles des Services de santé de l'Alberta">Services de santé de l'Alberta</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Saskatchewan</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20saskatchewan%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Saskatchewan des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20saskatchewan%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Saskatchewan des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20saskatchewan%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Saskatchewan des 30 derniers jours">30 jours</a>
+                <a href="https://www.saskatchewan.ca/government/news-and-media" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement de la Saskatchewan">Nouvelles du gouvernement</a>
+                <a href="https://www.saskhealthauthority.ca/news-events/news" target="_blank" class="official-link" aria-label="Nouvelles de la Régie de la santé de la Saskatchewan">Régie de la santé</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Manitoba</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20manitoba%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Manitoba des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20manitoba%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Manitoba des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20manitoba%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Manitoba des 30 derniers jours">30 jours</a>
+                <a href="https://news.gov.mb.ca/news/index.html" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement du Manitoba">Nouvelles du gouvernement</a>
+                <a href="https://sharedhealthmb.ca/news/" target="_blank" class="official-link" aria-label="Nouvelles de Soins communs Manitoba">Soins communs MB</a>
+                <a href="https://wrha.mb.ca/category/news/" target="_blank" class="official-link" aria-label="Nouvelles de l'Office régional de la santé de Winnipeg">Santé Winnipeg</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Ontario</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20ontario%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Ontario des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20ontario%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Ontario des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20ontario%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Ontario des 30 derniers jours">30 jours</a>
+                <a href="https://news.ontario.ca/en" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement de l'Ontario">Nouvelles du gouvernement</a>
+                <a href="https://www.ontariohealth.ca/about-us/news" target="_blank" class="official-link" aria-label="Nouvelles de Santé Ontario">Santé Ontario</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Québec</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20québec%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Québec des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20québec%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Québec des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20québec%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Québec des 30 derniers jours">30 jours</a>
+                <a href="https://www.quebec.ca/nouvelles/rechercher?id=6557&tx_solr[q]&tx_solr[filter][]=themes%3A4158&tx_solr[filter][]=themes%3A200&tx_solr[filter][]=themes%3A178&tx_solr[filter][]&tx_solr[sort]=newest%20desc&tx_solr[resultsPerPage]=10&tx_solr[page]=1" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement du Québec en français">Nouvelles gouvernementales</a>
+                <a href="https://www.quebec.ca/en/news/search?id=6557&tx_solr[q]&tx_solr[filter][]=themes%3A4158&tx_solr[filter][]=themes%3A200&tx_solr[filter][]=themes%3A178&tx_solr[filter][]&tx_solr[sort]=newest%20desc&tx_solr[resultsPerPage]=10&tx_solr[page]=1" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement du Québec en anglais">Government News</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Nouveau-Brunswick</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20nouveau-brunswick%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Nouveau-Brunswick des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20nouveau-brunswick%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Nouveau-Brunswick des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20nouveau-brunswick%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Nouveau-Brunswick des 30 derniers jours">30 jours</a>
+                <a href="https://www2.gnb.ca/content/gnb/fr/nouvelles/resultats_recherche.html?_charset_=UTF-8&newskeyword=health&newsFromDate=&newsToDate=&newsdeptId=" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement du Nouveau-Brunswick">Nouvelles du gouvernement</a>
+                <a href="https://horizonnb.ca/fr/category/communiques/" target="_blank" class="official-link" aria-label="Nouvelles du Réseau de santé Horizon">Santé Horizon</a>
+                <a href="https://vitalitenb.ca/fr/nouvelles" target="_blank" class="official-link" aria-label="Nouvelles du Réseau de santé Vitalité">Santé Vitalité</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Terre-Neuve-et-Labrador</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20terre-neuve-et-labrador%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé à Terre-Neuve-et-Labrador des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20terre-neuve-et-labrador%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé à Terre-Neuve-et-Labrador des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20terre-neuve-et-labrador%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé à Terre-Neuve-et-Labrador des 30 derniers jours">30 jours</a>
+                <a href="https://www.gov.nl.ca/releases/r/" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement de Terre-Neuve-et-Labrador">Nouvelles du gouvernement</a>
+                <a href="https://nlhealthservices.ca/news/" target="_blank" class="official-link" aria-label="Nouvelles des Services de santé de Terre-Neuve-et-Labrador">Services de santé de T.-N.-L.</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Nouvelle-Écosse</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20nouvelle-écosse%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Nouvelle-Écosse des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20nouvelle-écosse%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Nouvelle-Écosse des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20nouvelle-écosse%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé en Nouvelle-Écosse des 30 derniers jours">30 jours</a>
+                <a href="https://news.novascotia.ca" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement de la Nouvelle-Écosse">Nouvelles du gouvernement</a>
+                <a href="https://www.nshealth.ca/news-and-notices" target="_blank" class="official-link" aria-label="Nouvelles de Santé Nouvelle-Écosse">Santé N.-É.</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Île-du-Prince-Édouard</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20île-du-prince-édouard%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé à l'Île-du-Prince-Édouard des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20île-du-prince-édouard%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé à l'Île-du-Prince-Édouard des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20île-du-prince-édouard%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé à l'Île-du-Prince-Édouard des 30 derniers jours">30 jours</a>
+                <a href="https://www.princeedwardisland.ca/fr/nouvelles" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement de l'Île-du-Prince-Édouard">Nouvelles du gouvernement</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Yukon</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20yukon%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Yukon des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20yukon%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Yukon des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20yukon%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Yukon des 30 derniers jours">30 jours</a>
+                <a href="https://yukon.ca/fr/nouvelles" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement du Yukon">Nouvelles du gouvernement</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Territoires du Nord-Ouest</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20territoires%20du%20nord-ouest%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé dans les Territoires du Nord-Ouest des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20territoires%20du%20nord-ouest%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé dans les Territoires du Nord-Ouest des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20territoires%20du%20nord-ouest%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé dans les Territoires du Nord-Ouest des 30 derniers jours">30 jours</a>
+                <a href="https://www.gov.nt.ca/fr/newsroom?f%5B0%5D=field_news_department%3A91" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement des Territoires du Nord-Ouest">Nouvelles du gouvernement</a>
+                <a href="https://www.nthssa.ca/fr/salle-de-presse" target="_blank" class="official-link" aria-label="Nouvelles de l'Administration des services de santé et des services sociaux des Territoires du Nord-Ouest">Régie de la santé</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Nunavut</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20nunavut%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Nunavut des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20nunavut%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Nunavut des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20nunavut%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Nunavut des 30 derniers jours">30 jours</a>
+                <a href="https://www.gov.nu.ca/fr/salle-de-presse" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement du Nunavut">Nouvelles du gouvernement</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="province-name">Canada</td>
+            <td>
+              <div class="links-container">
+                <a href="https://news.google.com/search?q=santé%20canada%20when%3A7d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Canada des 7 derniers jours">7 jours</a>
+                <a href="https://news.google.com/search?q=santé%20canada%20when%3A14d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Canada des 14 derniers jours">14 jours</a>
+                <a href="https://news.google.com/search?q=santé%20canada%20when%3A30d&hl=fr-CA&gl=CA&ceid=CA%3Afr" target="_blank" class="google-link" aria-label="Nouvelles sur la santé au Canada des 30 derniers jours">30 jours</a>
+                <a href="https://www.canada.ca/fr/nouvelles.html" target="_blank" class="official-link" aria-label="Nouvelles du gouvernement du Canada">Nouvelles du gouvernement du Canada</a>
+                <a href="https://www.canada.ca/fr/sante-publique/nouvelles/recherche-avancee-nouvelles/resultats-nouvelles.html" target="_blank" class="official-link" aria-label="Nouvelles de l'Agence de la santé publique du Canada">Nouvelles de l'Agence de la santé publique</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <footer class="footer">
+      <p>Ce tableau de bord offre un accès rapide aux nouvelles sur la santé à travers le Canada, provenant de sources gouvernementales officielles et de la couverture médiatique générale.</p>
+      <div class="last-updated">Dernière mise à jour : 14 mars 2025</div>
+      <div style="clear: both;"></div>
+    </footer>
+  </div>
+</body>
+</html>
