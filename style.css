@@ -377,13 +377,17 @@ a:hover, a:focus {
   right: 20px;
   z-index: 99;
   border: none;
-  outline: none;
   background-color: var(--primary-blue);
   color: white;
   cursor: pointer;
   padding: 15px;
   border-radius: 10px;
   font-size: 18px;
+}
+
+#back-to-top-btn:focus-visible {
+  outline: 3px solid var(--accent-red);
+  outline-offset: 2px;
 }
 
 #back-to-top-btn:hover {
