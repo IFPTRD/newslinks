@@ -153,63 +153,34 @@ h1:after {
   min-width: 200px;
 }
 
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin-top: 10px; /* Reduced from 12px */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-th, td {
-  padding: 12px; /* Reduced from 15px */
-  text-align: left;
-  vertical-align: top;
+.province-card {
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-default);
 }
 
-th {
-  background-color: var(--dark-blue);
-  color: white;
-  font-weight: 500;
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 1px;
-  padding: 14px 12px; /* Reduced from 18px 15px */
-}
-
-th:first-child {
-  border-top-left-radius: var(--border-radius-md);
-}
-
-th:last-child {
-  border-top-right-radius: var(--border-radius-md);
-}
-
-tr:nth-child(even) {
-  background-color: var(--table-alt-row);
-}
-
-tr:hover {
-  background-color: var(--table-hover);
-  transition: background-color 0.2s ease;
-}
-
-tr:last-child td:first-child {
-  border-bottom-left-radius: var(--border-radius-md);
-}
-
-tr:last-child td:last-child {
-  border-bottom-right-radius: var(--border-radius-md);
-}
-
-td {
-  border-bottom: 1px solid var(--border-light);
+.province-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
 }
 
 .province-name {
   font-weight: 600;
   color: var(--dark-blue);
-  width: 25%;
-  font-size: 15px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--primary-blue);
+  padding-bottom: 10px;
 }
 
 .links-container {
@@ -316,57 +287,74 @@ a:hover, a:focus {
   background-color: var(--primary-green);
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.8rem;
+  text-align: left;
+  flex-grow: 1;
+}
+
+h1:after {
+  display: none;
+}
+
+.header-controls {
+  position: static;
+  order: 3;
+}
+
+.link-labels {
+  order: 2;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.last-updated {
+  margin-top: 0;
+}
+
 @media (max-width: 768px) {
-  .province-name {
-    width: 100%;
-    font-size: 16px;
-    padding-bottom: 0;
-    background-color: #f4f8fb;
-    border-left: 4px solid var(--primary-blue);
-  }
-
-  body {
-    padding: 10px; /* Reduced from 15px */
-  }
-
-  .container {
-    padding: 10px; /* Reduced from 15px */
-  }
-
-  table, tr, td {
-    display: block;
-  }
-
-  th {
-    display: none;
-  }
-
-  tr {
-    margin-bottom: 15px; /* Reduced from 20px */
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .links-container {
-    padding-top: 3px; /* Reduced from 5px */
-  }
-
-  a {
-    min-width: 140px;
-  }
-
-  .federal-links {
+  header {
     flex-direction: column;
+    align-items: flex-start;
   }
 
-  .federal-links a {
-    width: 100%;
+  h1 {
+    margin-bottom: 10px;
   }
 
-  .home-button {
-    top: 5px;
-    left: 5px;
+  .link-labels {
+    order: 3;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .header-controls {
+    order: 2;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
   }
 }
 
