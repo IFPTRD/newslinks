@@ -4,353 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Health News</title>
-  <style>
-    :root {
-      --primary-blue: #3498db;
-      --dark-blue: #2c3e50;
-      --light-blue: #f1f9ff;
-      --primary-green: #27ae60;
-      --light-green: #e8f8f5;
-      --background-gray: #f5f7fa;
-      --table-alt-row: #f2f6fa;
-      --table-hover: #edf5fa;
-      --border-light: #eaeaea;
-      --text-dark: #333;
-      --text-light: #7f8c8d;
-      --accent-red: #e74c3c;
-      --accent-red-dark: #c0392b;
-      --border-radius-sm: 6px;
-      --border-radius-md: 8px;
-      --border-radius-lg: 12px;
-      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 4px 8px rgba(52, 152, 219, 0.3);
-      --transition-default: all 0.3s ease;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--background-gray);
-      color: var(--text-dark);
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px; /* Reduced from 30px */
-      line-height: 1.5;
-    }
-    
-    .container {
-      background-color: white;
-      border-radius: var(--border-radius-lg);
-      box-shadow: var(--shadow-md);
-      padding: 10px 25px 15px; /* Reduced from 15px 30px 20px */
-      position: relative; /* For positioning the home button */
-    }
-    
-    header {
-      margin-bottom: 15px; /* Reduced from 20px */
-      position: relative;
-    }
-    
-    .home-button {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      z-index: 10;
-      background-color: var(--primary-blue);
-      color: white;
-      border-radius: var(--border-radius-sm);
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition-default);
-    }
-    
-    .home-button:hover {
-      background-color: var(--dark-blue);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .home-icon {
-      width: 16px;
-      height: 16px;
-    }
-    
-    h1 {
-      color: var(--dark-blue);
-      text-align: center;
-      margin-bottom: 12px; /* Reduced from 15px */
-      font-weight: 600;
-      position: relative;
-      padding-bottom: 8px;
-      margin-top: 0;
-      font-size: 2rem;
-    }
-    
-    h1:after {
-      content: '';
-      position: absolute;
-      width: 230px;
-      height: 2px;
-      background-color: var(--accent-red);
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    
-    .federal-section {
-      margin-bottom: 25px; /* Reduced from 35px */
-      padding: 15px; /* Reduced from 20px */
-      background-color: #f8f9fa;
-      border-radius: var(--border-radius-md);
-      border-left: 4px solid var(--accent-red-dark);
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .federal-section h2 {
-      margin-top: 0;
-      color: var(--accent-red-dark);
-      font-size: 1.3rem;
-    }
-    
-    .federal-links {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    
-    .federal-links a {
-      flex: 1;
-      min-width: 200px;
-    }
-    
-    table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      margin-top: 10px; /* Reduced from 12px */
-    }
-    
-    th, td {
-      padding: 12px; /* Reduced from 15px */
-      text-align: left;
-      vertical-align: top;
-    }
-    
-    th {
-      background-color: var(--dark-blue);
-      color: white;
-      font-weight: 500;
-      text-transform: uppercase;
-      font-size: 14px;
-      letter-spacing: 1px;
-      padding: 14px 12px; /* Reduced from 18px 15px */
-    }
-    
-    th:first-child {
-      border-top-left-radius: var(--border-radius-md);
-    }
-    
-    th:last-child {
-      border-top-right-radius: var(--border-radius-md);
-    }
-    
-    tr:nth-child(even) {
-      background-color: var(--table-alt-row);
-    }
-    
-    tr:hover {
-      background-color: var(--table-hover);
-      transition: background-color 0.2s ease;
-    }
-    
-    tr:last-child td:first-child {
-      border-bottom-left-radius: var(--border-radius-md);
-    }
-    
-    tr:last-child td:last-child {
-      border-bottom-right-radius: var(--border-radius-md);
-    }
-    
-    td {
-      border-bottom: 1px solid var(--border-light);
-    }
-    
-    .province-name {
-      font-weight: 600;
-      color: var(--dark-blue);
-      width: 25%;
-      font-size: 15px;
-    }
-    
-    .links-container {
-      display: flex;
-      gap: 8px; /* Reduced from 10px */
-      flex-wrap: wrap;
-    }
-    
-    a {
-      color: var(--primary-blue);
-      text-decoration: none;
-      display: inline-block;
-      padding: 6px 10px; /* Reduced from 8px 12px */
-      background-color: var(--light-blue);
-      border-radius: var(--border-radius-sm);
-      border: 1px solid #d6eaf8;
-      transition: var(--transition-default);
-      font-size: 13px;
-      margin-bottom: 4px; /* Reduced from 5px */
-      min-width: 110px;
-      text-align: center;
-      font-weight: 500;
-    }
-    
-    a:hover, a:focus {
-      background-color: var(--primary-blue);
-      color: white;
-      border-color: var(--primary-blue);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .official-link {
-      background-color: var(--light-green);
-      border-color: #d0ece7;
-    }
-    
-    .official-link:hover, .official-link:focus {
-      background-color: var(--primary-green);
-      border-color: var(--primary-green);
-    }
-    
-    .google-link {
-      background-color: var(--light-blue);
-      border-color: #d6eaf8;
-    }
-    
-    .health-authority {
-      margin-top: 4px; /* Reduced from 5px */
-      font-size: 12px;
-      color: var(--text-light);
-    }
-    
-    .footer {
-      text-align: center;
-      margin-top: 20px; /* Reduced from 30px */
-      font-size: 12px;
-      color: var(--text-light);
-      line-height: 1.5;
-    }
-    
-    .last-updated {
-      font-style: italic;
-      text-align: right;
-      margin-top: 15px; /* Reduced from 20px */
-      font-size: 13px;
-      color: var(--text-light);
-      background-color: #f8f9fa;
-      padding: 8px 12px; /* Reduced from 10px 15px */
-      border-radius: var(--border-radius-sm);
-      display: block;
-    }
-    
-    .link-labels {
-      display: flex;
-      gap: 15px;
-      justify-content: flex-end;
-      margin-bottom: 6px; /* Reduced from 8px */
-      flex-wrap: wrap;
-      background-color: #f8f9fa;
-      padding: 4px 10px; /* Reduced from 6px 12px */
-      border-radius: var(--border-radius-sm);
-    }
-    
-    .link-label {
-      display: flex;
-      align-items: center;
-      font-size: 13px;
-    }
-    
-    .link-dot {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 6px;
-    }
-    
-    .dot-google {
-      background-color: var(--primary-blue);
-    }
-    
-    .dot-official {
-      background-color: var(--primary-green);
-    }
-    
-    @media (max-width: 768px) {
-      .province-name {
-        width: 100%;
-        font-size: 16px;
-        padding-bottom: 0;
-        background-color: #f4f8fb;
-        border-left: 4px solid var(--primary-blue);
-      }
-      
-      body {
-        padding: 10px; /* Reduced from 15px */
-      }
-      
-      .container {
-        padding: 10px; /* Reduced from 15px */
-      }
-      
-      table, tr, td {
-        display: block;
-      }
-      
-      th {
-        display: none;
-      }
-      
-      tr {
-        margin-bottom: 15px; /* Reduced from 20px */
-        border-radius: var(--border-radius-md);
-        overflow: hidden;
-        box-shadow: var(--shadow-sm);
-      }
-      
-      .links-container {
-        padding-top: 3px; /* Reduced from 5px */
-      }
-      
-      a {
-        min-width: 140px;
-      }
-      
-      .federal-links {
-        flex-direction: column;
-      }
-      
-      .federal-links a {
-        width: 100%;
-      }
-      
-      .home-button {
-        top: 5px;
-        left: 5px;
-      }
-    }
-  </style>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3063/3063830.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
@@ -361,6 +16,9 @@
           <polyline points="9 22 9 12 15 12 15 22"></polyline>
         </svg>
       </a>
+      <div class="header-controls">
+        <a href="index_fr.html" class="language-toggle" aria-label="Switch to French">FR</a>
+      </div>
       <h1>Health News</h1>
       <div class="link-labels">
         <div class="link-label"><span class="link-dot dot-google"></span> External Sources</div>
@@ -560,5 +218,27 @@
       <div style="clear: both;"></div>
     </footer>
   </div>
+  <button onclick="topFunction()" id="back-to-top-btn" title="Go to top">Top</button>
+  <script>
+    //Get the button
+    var mybutton = document.getElementById("back-to-top-btn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
 </body>
 </html>
