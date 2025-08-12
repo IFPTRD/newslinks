@@ -105,6 +105,24 @@ header {
   box-shadow: var(--shadow-lg);
 }
 
+.edit-toggle {
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-right: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-default);
+}
+
+.edit-toggle:hover {
+  background-color: var(--dark-blue);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
 h1 {
   color: var(--dark-blue);
   text-align: center;
@@ -218,21 +236,46 @@ td {
   flex-wrap: wrap;
 }
 
-#custom-link-form {
-  margin-top: 10px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+.link-wrapper {
+  position: relative;
+  display: inline-block;
 }
 
-#custom-link-form input {
+.remove-link {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: var(--accent-red);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  cursor: pointer;
+  display: none;
+}
+
+body.editing .remove-link {
+  display: block;
+}
+
+.add-link-form {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.add-link-form input {
   padding: 6px 8px;
   border: 1px solid var(--border-light);
   border-radius: var(--border-radius-sm);
   flex: 1;
 }
 
-#custom-link-form button {
+.add-link-form button {
   background-color: var(--primary-green);
   color: white;
   border: none;
@@ -242,29 +285,12 @@ td {
   transition: var(--transition-default);
 }
 
-#custom-link-form button:hover {
-  background-color: var(--dark-blue);
-}
-
-.custom-link-item {
-  display: inline-flex;
-  align-items: center;
-}
-
-.remove-link {
-  margin-left: 4px;
+.add-link-form .reset-btn {
   background-color: var(--accent-red);
-  color: white;
-  border: none;
-  border-radius: var(--border-radius-sm);
-  cursor: pointer;
-  padding: 2px 6px;
-  font-size: 12px;
-  transition: var(--transition-default);
 }
 
-.remove-link:hover {
-  background-color: var(--accent-red-dark);
+.add-link-form button:hover {
+  background-color: var(--dark-blue);
 }
 
 a {
@@ -418,13 +444,6 @@ a:hover, a:focus {
     left: 5px;
   }
 
-  #custom-link-form {
-    flex-direction: column;
-  }
-
-  #custom-link-form button {
-    width: 100%;
-  }
 }
 
 #back-to-top-btn {

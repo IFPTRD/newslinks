@@ -1,66 +1,152 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const container = document.getElementById('custom-links-container');
-  const form = document.getElementById('custom-link-form');
-  const nameInput = document.getElementById('custom-link-name');
-  const urlInput = document.getElementById('custom-link-url');
-  if (!container || !form || !nameInput || !urlInput) return;
+document.addEventListener('DOMContentLoaded', () => {
+  const editToggle = document.getElementById('edit-toggle');
+  const containers = document.querySelectorAll('.links-container');
+  const lang = document.documentElement.lang.startsWith('fr') ? 'fr' : 'en';
 
-  const removeLabel = container.dataset.removeLabel || 'Remove';
+  const text = {
+    en: {
+      edit: 'Edit',
+      done: 'Done',
+      add: 'Add',
+      reset: 'Reset',
+      name: 'Link name',
+      url: 'https://example.com',
+      remove: 'Remove'
+    },
+    fr: {
+      edit: 'Modifier',
+      done: 'Terminer',
+      add: 'Ajouter',
+      reset: 'Réinitialiser',
+      name: 'Nom du lien',
+      url: 'https://exemple.com',
+      remove: 'Supprimer'
+    }
+  };
 
-  function getLinks() {
+  const labels = text[lang];
+  const defaultLinks = {};
+
+  containers.forEach(container => {
+    const name = container.closest('tr').querySelector('.province-name').textContent.trim();
+    const key = slug(name);
+    container.dataset.category = key;
+    const links = Array.from(container.querySelectorAll('a')).map(a => ({
+      text: a.textContent,
+      url: a.href,
+      className: a.className
+    }));
+    defaultLinks[key] = links;
+    const stored = getStoredLinks(key);
+    render(container, stored ? stored : links.slice());
+  });
+
+  if (editToggle) {
+    editToggle.textContent = labels.edit;
+    editToggle.addEventListener('click', () => {
+      document.body.classList.toggle('editing');
+      if (document.body.classList.contains('editing')) {
+        editToggle.textContent = labels.done;
+        containers.forEach(showEditControls);
+      } else {
+        editToggle.textContent = labels.edit;
+        containers.forEach(hideEditControls);
+      }
+    });
+  }
+
+  function slug(str) {
+    return str.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  }
+
+  function getStoredLinks(category) {
     try {
-      return JSON.parse(localStorage.getItem('customLinks')) || [];
+      return JSON.parse(localStorage.getItem('links_' + category));
     } catch (e) {
-      return [];
+      return null;
     }
   }
 
-  function saveLinks(links) {
-    localStorage.setItem('customLinks', JSON.stringify(links));
+  function saveLinks(category, links) {
+    localStorage.setItem('links_' + category, JSON.stringify(links));
   }
 
-  function renderLinks() {
-    const links = getLinks();
+  function render(container, links) {
     container.innerHTML = '';
-    links.forEach(function(link, index) {
+    const category = container.dataset.category;
+    links.forEach((link, index) => {
       const wrapper = document.createElement('span');
-      wrapper.className = 'custom-link-item';
+      wrapper.className = 'link-wrapper';
 
       const a = document.createElement('a');
       a.href = link.url;
-      a.textContent = link.name;
+      a.textContent = link.text;
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
+      if (link.className) a.className = link.className;
 
       const removeBtn = document.createElement('button');
       removeBtn.type = 'button';
-      removeBtn.textContent = removeLabel;
       removeBtn.className = 'remove-link';
-      removeBtn.addEventListener('click', function() {
-        const links = getLinks();
+      removeBtn.textContent = '×';
+      removeBtn.title = labels.remove;
+      removeBtn.addEventListener('click', () => {
         links.splice(index, 1);
-        saveLinks(links);
-        renderLinks();
+        saveLinks(category, links);
+        render(container, links);
+        showEditControls(container);
       });
 
       wrapper.appendChild(a);
       wrapper.appendChild(removeBtn);
       container.appendChild(wrapper);
     });
+
+    if (document.body.classList.contains('editing')) {
+      showEditControls(container);
+    }
   }
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = nameInput.value.trim();
-    const url = urlInput.value.trim();
-    if (!name || !url) return;
-    const links = getLinks();
-    links.push({ name: name, url: url });
-    saveLinks(links);
-    nameInput.value = '';
-    urlInput.value = '';
-    renderLinks();
-  });
+  function showEditControls(container) {
+    const category = container.dataset.category;
+    if (!container.querySelector('.add-link-form')) {
+      const form = document.createElement('form');
+      form.className = 'add-link-form';
+      form.innerHTML = `
+        <input type="text" placeholder="${labels.name}" aria-label="${labels.name}" required>
+        <input type="url" placeholder="${labels.url}" aria-label="${labels.url}" required>
+        <button type="submit">${labels.add}</button>
+        <button type="button" class="reset-btn">${labels.reset}</button>
+      `;
+      container.appendChild(form);
 
-  renderLinks();
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const nameInput = form.querySelector('input[type="text"]');
+        const urlInput = form.querySelector('input[type="url"]');
+        const name = nameInput.value.trim();
+        const url = urlInput.value.trim();
+        if (!name || !url) return;
+        const links = getStoredLinks(category) || defaultLinks[category].slice();
+        links.push({ text: name, url: url, className: 'google-link' });
+        saveLinks(category, links);
+        nameInput.value = '';
+        urlInput.value = '';
+        render(container, links);
+        showEditControls(container);
+      });
+
+      form.querySelector('.reset-btn').addEventListener('click', () => {
+        localStorage.removeItem('links_' + category);
+        render(container, defaultLinks[category].slice());
+        showEditControls(container);
+      });
+    }
+  }
+
+  function hideEditControls(container) {
+    const form = container.querySelector('.add-link-form');
+    if (form) form.remove();
+  }
 });
+

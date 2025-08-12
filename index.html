@@ -17,6 +17,7 @@
         </svg>
       </a>
       <div class="header-controls">
+        <button id="edit-toggle" class="edit-toggle" aria-label="Edit links">Edit</button>
         <a href="index_fr.html" class="language-toggle" aria-label="Switch to French">FR</a>
       </div>
       <h1>Health News</h1>
@@ -35,12 +36,6 @@
           </tr>
         </thead>
         <tbody>
-          <tr id="custom-links-row">
-            <td class="province-name">Custom Links</td>
-            <td>
-              <div class="links-container" id="custom-links-container" data-remove-label="Remove"></div>
-            </td>
-          </tr>
           <tr>
             <td class="province-name">British Columbia</td>
             <td>
@@ -215,11 +210,6 @@
           </tr>
         </tbody>
       </table>
-      <form id="custom-link-form">
-        <input type="text" id="custom-link-name" placeholder="Link name" aria-label="Link name" required>
-        <input type="url" id="custom-link-url" placeholder="https://example.com" aria-label="Link URL" required>
-        <button type="submit">Add</button>
-      </form>
     </main>
 
     <footer class="footer">

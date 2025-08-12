@@ -17,6 +17,7 @@
         </svg>
       </a>
       <div class="header-controls">
+        <button id="edit-toggle" class="edit-toggle" aria-label="Modifier les liens">Modifier</button>
         <a href="index.html" class="language-toggle" aria-label="Switch to English">EN</a>
       </div>
       <h1>Nouvelles sur la santé</h1>
@@ -34,12 +35,6 @@
           </tr>
         </thead>
         <tbody>
-          <tr id="custom-links-row">
-            <td class="province-name">Liens personnalisés</td>
-            <td>
-              <div class="links-container" id="custom-links-container" data-remove-label="Supprimer"></div>
-            </td>
-          </tr>
           <tr>
             <td class="province-name">Colombie-Britannique</td>
             <td>
@@ -214,11 +209,6 @@
           </tr>
         </tbody>
       </table>
-      <form id="custom-link-form">
-        <input type="text" id="custom-link-name" placeholder="Nom du lien" aria-label="Nom du lien" required>
-        <input type="url" id="custom-link-url" placeholder="https://exemple.com" aria-label="URL du lien" required>
-        <button type="submit">Ajouter</button>
-      </form>
     </main>
     <footer class="footer">
       <p>Ce tableau de bord offre un accès rapide aux nouvelles sur la santé à travers le Canada, provenant de sources gouvernementales officielles et de la couverture médiatique générale.</p>
