@@ -23,6 +23,7 @@
       <div class="link-labels">
         <div class="link-label"><span class="link-dot dot-google"></span> External Sources</div>
         <div class="link-label"><span class="link-dot dot-official"></span> Official Sources</div>
+        <button id="edit-toggle" class="edit-toggle" aria-label="Edit links">Edit</button>
       </div>
     </header>
     
@@ -210,7 +211,7 @@
         </tbody>
       </table>
     </main>
-    
+
     <footer class="footer">
       <p>This dashboard provides quick access to health news across Canada from both official government sources and general news coverage.</p>
       <div class="last-updated">Last updated: March 14, 2025</div>
@@ -219,6 +220,7 @@
     </footer>
   </div>
   <button onclick="topFunction()" id="back-to-top-btn" title="Back to top" aria-label="Back to top">Back to top</button>
+  <script src="custom-links.js"></script>
   <script>
     //Get the button
     var mybutton = document.getElementById("back-to-top-btn");
