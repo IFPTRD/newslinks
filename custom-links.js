@@ -109,34 +109,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showEditControls(container) {
     const category = container.dataset.category;
-    if (!container.querySelector('.add-link-form')) {
-      const form = document.createElement('form');
-      form.className = 'add-link-form';
-      form.innerHTML = `
-        <input type="text" placeholder="${labels.name}" aria-label="${labels.name}" required>
-        <input type="url" placeholder="${labels.url}" aria-label="${labels.url}" required>
-        <button type="submit">${labels.add}</button>
+    if (!container.querySelector('.edit-actions')) {
+      const actions = document.createElement('div');
+      actions.className = 'edit-actions';
+      actions.innerHTML = `
+        <button type="button" class="add-link-btn" title="${labels.add}">+</button>
         <button type="button" class="reset-btn">${labels.reset}</button>
       `;
-      container.appendChild(form);
+      container.appendChild(actions);
 
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        const nameInput = form.querySelector('input[type="text"]');
-        const urlInput = form.querySelector('input[type="url"]');
-        const name = nameInput.value.trim();
-        const url = urlInput.value.trim();
-        if (!name || !url) return;
-        const links = getStoredLinks(category) || defaultLinks[category].slice();
-        links.push({ text: name, url: url, className: 'google-link' });
-        saveLinks(category, links);
-        nameInput.value = '';
-        urlInput.value = '';
-        render(container, links);
-        showEditControls(container);
+      actions.querySelector('.add-link-btn').addEventListener('click', () => {
+        toggleAddForm(container, category);
       });
 
-      form.querySelector('.reset-btn').addEventListener('click', () => {
+      actions.querySelector('.reset-btn').addEventListener('click', () => {
         localStorage.removeItem('links_' + category);
         render(container, defaultLinks[category].slice());
         showEditControls(container);
@@ -146,7 +132,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function hideEditControls(container) {
     const form = container.querySelector('.add-link-form');
+    const actions = container.querySelector('.edit-actions');
     if (form) form.remove();
+    if (actions) actions.remove();
+  }
+
+  function toggleAddForm(container, category) {
+    let form = container.querySelector('.add-link-form');
+    if (form) {
+      form.remove();
+      return;
+    }
+    form = document.createElement('form');
+    form.className = 'add-link-form';
+    form.innerHTML = `
+      <input type="text" placeholder="${labels.name}" aria-label="${labels.name}" required>
+      <input type="url" placeholder="${labels.url}" aria-label="${labels.url}" required>
+      <button type="submit">${labels.add}</button>
+    `;
+    const actions = container.querySelector('.edit-actions');
+    container.insertBefore(form, actions);
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const nameInput = form.querySelector('input[type="text"]');
+      const urlInput = form.querySelector('input[type="url"]');
+      const name = nameInput.value.trim();
+      const url = urlInput.value.trim();
+      if (!name || !url) return;
+      const links = getStoredLinks(category) || defaultLinks[category].slice();
+      links.push({ text: name, url: url, className: 'google-link' });
+      saveLinks(category, links);
+      render(container, links);
+    });
   }
 });
 

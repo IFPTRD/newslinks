@@ -285,11 +285,42 @@ body.editing .remove-link {
   transition: var(--transition-default);
 }
 
-.add-link-form .reset-btn {
-  background-color: var(--accent-red);
+.add-link-form button:hover {
+  background-color: var(--dark-blue);
 }
 
-.add-link-form button:hover {
+.edit-actions {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.add-link-btn {
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  padding: 0;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.edit-actions .reset-btn {
+  background-color: var(--accent-red);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 4px 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.edit-actions button:hover {
   background-color: var(--dark-blue);
 }
 
