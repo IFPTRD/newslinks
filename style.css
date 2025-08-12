@@ -218,6 +218,55 @@ td {
   flex-wrap: wrap;
 }
 
+#custom-link-form {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#custom-link-form input {
+  padding: 6px 8px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-sm);
+  flex: 1;
+}
+
+#custom-link-form button {
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+#custom-link-form button:hover {
+  background-color: var(--dark-blue);
+}
+
+.custom-link-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.remove-link {
+  margin-left: 4px;
+  background-color: var(--accent-red);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 12px;
+  transition: var(--transition-default);
+}
+
+.remove-link:hover {
+  background-color: var(--accent-red-dark);
+}
+
 a {
   color: var(--primary-blue);
   text-decoration: none;
@@ -367,6 +416,14 @@ a:hover, a:focus {
   .home-button {
     top: 5px;
     left: 5px;
+  }
+
+  #custom-link-form {
+    flex-direction: column;
+  }
+
+  #custom-link-form button {
+    width: 100%;
   }
 }
 

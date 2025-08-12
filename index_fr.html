@@ -34,6 +34,12 @@
           </tr>
         </thead>
         <tbody>
+          <tr id="custom-links-row">
+            <td class="province-name">Liens personnalisés</td>
+            <td>
+              <div class="links-container" id="custom-links-container" data-remove-label="Supprimer"></div>
+            </td>
+          </tr>
           <tr>
             <td class="province-name">Colombie-Britannique</td>
             <td>
@@ -208,6 +214,11 @@
           </tr>
         </tbody>
       </table>
+      <form id="custom-link-form">
+        <input type="text" id="custom-link-name" placeholder="Nom du lien" aria-label="Nom du lien" required>
+        <input type="url" id="custom-link-url" placeholder="https://exemple.com" aria-label="URL du lien" required>
+        <button type="submit">Ajouter</button>
+      </form>
     </main>
     <footer class="footer">
       <p>Ce tableau de bord offre un accès rapide aux nouvelles sur la santé à travers le Canada, provenant de sources gouvernementales officielles et de la couverture médiatique générale.</p>
@@ -216,6 +227,7 @@
     </footer>
   </div>
   <button onclick="topFunction()" id="back-to-top-btn" title="Haut de page" aria-label="Haut de page">Haut de page</button>
+  <script src="custom-links.js"></script>
   <script>
     //Get the button
     var mybutton = document.getElementById("back-to-top-btn");
