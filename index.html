@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Health News</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3063/3063830.png">
+  <meta name="description"
+    content="Quick access to Canadian health news from official government sources and general news coverage across all provinces and territories.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="container">
     <header>
       <a href="https://ifptrd.github.io" class="home-button" title="Home" aria-label="Go to home page">
-        <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
           <polyline points="9 22 9 12 15 12 15 22"></polyline>
         </svg>
@@ -20,13 +28,22 @@
         <a href="index_fr.html" class="language-toggle" aria-label="Switch to French">FR</a>
       </div>
       <h1>Health News</h1>
+      <div class="search-container">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Search provinces..."
+          aria-label="Search provinces">
+      </div>
       <div class="link-labels">
         <div class="link-label"><span class="link-dot dot-google"></span> External Sources</div>
         <div class="link-label"><span class="link-dot dot-official"></span> Official Sources</div>
         <button id="edit-toggle" class="edit-toggle" aria-label="Edit links">Edit</button>
       </div>
     </header>
-    
+
     <main>
       <table>
         <thead>
@@ -40,16 +57,30 @@
             <td class="province-name">British Columbia</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=british%20columbia%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="British Columbia health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=british%20columbia%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="British Columbia health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=british%20columbia%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="British Columbia health news from the last 30 days">30 Days</a>
-                <a href="https://news.gov.bc.ca" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="British Columbia government news">Government News</a>
-                <a href="http://www.phsa.ca/about/news-stories/news-releases/2025-news" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Provincial Health Services Authority news">PHSA</a>
-                <a href="https://www.vch.ca/en/about-us/media-centre/news" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Vancouver Coastal Health news">Vancouver Coastal</a>
-                <a href="https://www.islandhealth.ca/news" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Island Health news">Island Health</a>
-                <a href="https://www.interiorhealth.ca/stories" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Interior Health news">Interior Health</a>
-                <a href="https://www.northernhealth.ca/newsroom" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Northern Health news">Northern Health</a>
-                <a href="https://www.fraserhealth.ca/news" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Fraser Health news">Fraser Health</a>
+                <a href="https://news.google.com/search?q=british%20columbia%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="British Columbia health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=british%20columbia%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="British Columbia health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=british%20columbia%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="British Columbia health news from the last 30 days">30 Days</a>
+                <a href="https://news.gov.bc.ca" target="_blank" rel="noopener noreferrer" class="official-link"
+                  aria-label="British Columbia government news">Government News</a>
+                <a href="http://www.phsa.ca/about/news-stories/news-releases/2025-news" target="_blank"
+                  rel="noopener noreferrer" class="official-link"
+                  aria-label="Provincial Health Services Authority news">PHSA</a>
+                <a href="https://www.vch.ca/en/about-us/media-centre/news" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Vancouver Coastal Health news">Vancouver Coastal</a>
+                <a href="https://www.islandhealth.ca/news" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Island Health news">Island Health</a>
+                <a href="https://www.interiorhealth.ca/stories" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Interior Health news">Interior Health</a>
+                <a href="https://www.northernhealth.ca/newsroom" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Northern Health news">Northern Health</a>
+                <a href="https://www.fraserhealth.ca/news" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Fraser Health news">Fraser Health</a>
               </div>
             </td>
           </tr>
@@ -57,11 +88,20 @@
             <td class="province-name">Alberta</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=alberta%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Alberta health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=alberta%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Alberta health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=alberta%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Alberta health news from the last 30 days">30 Days</a>
-                <a href="https://www.alberta.ca/news" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Alberta government news">Government News</a>
-                <a href="https://www.albertahealthservices.ca/news/newsreleases.aspx" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Alberta Health Services news">Alberta Health Services</a>
+                <a href="https://news.google.com/search?q=alberta%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Alberta health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=alberta%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Alberta health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=alberta%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Alberta health news from the last 30 days">30 Days</a>
+                <a href="https://www.alberta.ca/news" target="_blank" rel="noopener noreferrer" class="official-link"
+                  aria-label="Alberta government news">Government News</a>
+                <a href="https://www.albertahealthservices.ca/news/newsreleases.aspx" target="_blank"
+                  rel="noopener noreferrer" class="official-link" aria-label="Alberta Health Services news">Alberta
+                  Health Services</a>
               </div>
             </td>
           </tr>
@@ -69,11 +109,20 @@
             <td class="province-name">Saskatchewan</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=saskatchewan%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Saskatchewan health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=saskatchewan%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Saskatchewan health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=saskatchewan%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Saskatchewan health news from the last 30 days">30 Days</a>
-                <a href="https://www.saskatchewan.ca/government/news-and-media" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Saskatchewan government news">Government News</a>
-                <a href="https://www.saskhealthauthority.ca/news-events/news" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Saskatchewan Health Authority news">Health Authority</a>
+                <a href="https://news.google.com/search?q=saskatchewan%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Saskatchewan health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=saskatchewan%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Saskatchewan health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=saskatchewan%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Saskatchewan health news from the last 30 days">30 Days</a>
+                <a href="https://www.saskatchewan.ca/government/news-and-media" target="_blank"
+                  rel="noopener noreferrer" class="official-link" aria-label="Saskatchewan government news">Government
+                  News</a>
+                <a href="https://www.saskhealthauthority.ca/news-events/news" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Saskatchewan Health Authority news">Health Authority</a>
               </div>
             </td>
           </tr>
@@ -81,24 +130,30 @@
             <td class="province-name">Manitoba</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=manitoba%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Manitoba health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=manitoba%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Manitoba health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=manitoba%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Manitoba health news from the last 30 days">30 Days</a>
-                <a href="https://news.gov.mb.ca/news/index.html" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Manitoba government news">Government News</a>
-                <a href="https://sharedhealthmb.ca/news/" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Shared Health Manitoba news">Shared Health MB</a>
-                <a href="https://wrha.mb.ca/category/news/" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Winnipeg Regional Health Authority news">Winnipeg Health</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="province-name">Ontario</td>
-            <td>
-              <div class="links-container">
-                <a href="https://news.google.com/search?q=ontario%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Ontario health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=ontario%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Ontario health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=ontario%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Ontario health news from the last 30 days">30 Days</a>
-                <a href="https://news.ontario.ca/en" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Ontario government news">Government News</a>
-                <a href="https://www.ontariohealth.ca/about-us/news" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Ontario Health news">Ontario Health</a>
+                <a href="https://news.google.com/search?q=manitoba%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Manitoba health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=manitoba%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Manitoba health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=manitoba%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Manitoba health news from the last 30 days">30 Days</a>
+                <a href="https://news.gov.mb.ca/news/index.html" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Manitoba government news">Government News</a>
+                <a href="https://sharedhealthmb.ca/news/" target="_blank" rel="noopener noreferrer" target="_blank"
+                  rel="noopener noreferrer" class="google-link" aria-label="Ontario health news from the last 7 days">7
+                  Days</a>
+                <a href="https://news.google.com/search?q=ontario%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Ontario health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=ontario%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Ontario health news from the last 30 days">30 Days</a>
+                <a href="https://news.ontario.ca/en" target="_blank" rel="noopener noreferrer" class="official-link"
+                  aria-label="Ontario government news">Government News</a>
+                <a href="https://www.ontariohealth.ca/about-us/news" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Ontario Health news">Ontario Health</a>
               </div>
             </td>
           </tr>
@@ -106,11 +161,21 @@
             <td class="province-name">Quebec</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=quebec%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Quebec health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=quebec%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Quebec health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=quebec%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Quebec health news from the last 30 days">30 Days</a>
-                <a href="https://www.quebec.ca/en/news/search?id=6557&tx_solr[q]&tx_solr[filter][]=themes%3A4158&tx_solr[filter][]=themes%3A200&tx_solr[filter][]=themes%3A178&tx_solr[filter][]&tx_solr[sort]=newest%20desc&tx_solr[resultsPerPage]=10&tx_solr[page]=1" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Quebec government news in English">Government News</a>
-                <a href="https://www.quebec.ca/nouvelles/rechercher?id=6557&tx_solr[q]&tx_solr[filter][]=themes%3A4158&tx_solr[filter][]=themes%3A200&tx_solr[filter][]=themes%3A178&tx_solr[filter][]&tx_solr[sort]=newest%20desc&tx_solr[resultsPerPage]=10&tx_solr[page]=1" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Quebec government news in French">Nouvelles gouvernementales</a>
+                <a href="https://news.google.com/search?q=quebec%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Quebec health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=quebec%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Quebec health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=quebec%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Quebec health news from the last 30 days">30 Days</a>
+                <a href="https://www.quebec.ca/en/news/search?id=6557&tx_solr[q]&tx_solr[filter][]=themes%3A4158&tx_solr[filter][]=themes%3A200&tx_solr[filter][]=themes%3A178&tx_solr[filter][]&tx_solr[sort]=newest%20desc&tx_solr[resultsPerPage]=10&tx_solr[page]=1"
+                  target="_blank" rel="noopener noreferrer" class="official-link"
+                  aria-label="Quebec government news in English">Government News</a>
+                <a href="https://www.quebec.ca/nouvelles/rechercher?id=6557&tx_solr[q]&tx_solr[filter][]=themes%3A4158&tx_solr[filter][]=themes%3A200&tx_solr[filter][]=themes%3A178&tx_solr[filter][]&tx_solr[sort]=newest%20desc&tx_solr[resultsPerPage]=10&tx_solr[page]=1"
+                  target="_blank" rel="noopener noreferrer" class="official-link"
+                  aria-label="Quebec government news in French">Nouvelles gouvernementales</a>
               </div>
             </td>
           </tr>
@@ -118,12 +183,22 @@
             <td class="province-name">New Brunswick</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=new%20brunswick%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="New Brunswick health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=new%20brunswick%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="New Brunswick health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=new%20brunswick%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="New Brunswick health news from the last 30 days">30 Days</a>
-                <a href="https://www2.gnb.ca/content/gnb/en/news/search_results.html?_charset_=UTF-8&newskeyword=health&newsFromDate=&newsToDate=&newsdeptId=" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="New Brunswick government news">Government News</a>
-                <a href="https://horizonnb.ca/category/news-releases/" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Horizon Health Network news">Horizon Health</a>
-                <a href="https://vitalitenb.ca/en/news" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Vitalité Health Network news">Vitalité Health</a>
+                <a href="https://news.google.com/search?q=new%20brunswick%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="New Brunswick health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=new%20brunswick%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="New Brunswick health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=new%20brunswick%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="New Brunswick health news from the last 30 days">30 Days</a>
+                <a href="https://www2.gnb.ca/content/gnb/en/news/search_results.html?_charset_=UTF-8&newskeyword=health&newsFromDate=&newsToDate=&newsdeptId="
+                  target="_blank" rel="noopener noreferrer" class="official-link"
+                  aria-label="New Brunswick government news">Government News</a>
+                <a href="https://horizonnb.ca/category/news-releases/" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Horizon Health Network news">Horizon Health</a>
+                <a href="https://vitalitenb.ca/en/news" target="_blank" rel="noopener noreferrer" class="official-link"
+                  aria-label="Vitalité Health Network news">Vitalité Health</a>
               </div>
             </td>
           </tr>
@@ -131,23 +206,40 @@
             <td class="province-name">Newfoundland and Labrador</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=newfoundland%20and%20labrador%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Newfoundland and Labrador health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=newfoundland%20and%20labrador%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Newfoundland and Labrador health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=newfoundland%20and%20labrador%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Newfoundland and Labrador health news from the last 30 days">30 Days</a>
-                <a href="https://www.gov.nl.ca/releases/r/" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Newfoundland and Labrador government news">Government News</a>
-                <a href="https://nlhealthservices.ca/news/" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Newfoundland and Labrador Health Services news">NL Health Services</a>
+                <a href="https://news.google.com/search?q=newfoundland%20and%20labrador%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Newfoundland and Labrador health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=newfoundland%20and%20labrador%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Newfoundland and Labrador health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=newfoundland%20and%20labrador%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Newfoundland and Labrador health news from the last 30 days">30 Days</a>
+                <a href="https://www.gov.nl.ca/releases/r/" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Newfoundland and Labrador government news">Government News</a>
+                <a href="https://nlhealthservices.ca/news/" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Newfoundland and Labrador Health Services news">NL Health
+                  Services</a>
               </div>
             </td>
-          </tr>          
-            <tr>
+          </tr>
+          <tr>
             <td class="province-name">Nova Scotia</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=nova%20scotia%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Nova Scotia health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=nova%20scotia%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Nova Scotia health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=nova%20scotia%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Nova Scotia health news from the last 30 days">30 Days</a>
-                <a href="https://news.novascotia.ca" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Nova Scotia government news">Government News</a>
-                <a href="https://www.nshealth.ca/news-and-notices" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Nova Scotia Health news">NS Health</a>
+                <a href="https://news.google.com/search?q=nova%20scotia%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Nova Scotia health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=nova%20scotia%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Nova Scotia health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=nova%20scotia%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Nova Scotia health news from the last 30 days">30 Days</a>
+                <a href="https://news.novascotia.ca" target="_blank" rel="noopener noreferrer" class="official-link"
+                  aria-label="Nova Scotia government news">Government News</a>
+                <a href="https://www.nshealth.ca/news-and-notices" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Nova Scotia Health news">NS Health</a>
               </div>
             </td>
           </tr>
@@ -155,10 +247,17 @@
             <td class="province-name">Prince Edward Island</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=prince%20edward%20island%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Prince Edward Island health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=prince%20edward%20island%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Prince Edward Island health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=prince%20edward%20island%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Prince Edward Island health news from the last 30 days">30 Days</a>
-                <a href="https://www.princeedwardisland.ca/en/news" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Prince Edward Island government news">Government News</a>
+                <a href="https://news.google.com/search?q=prince%20edward%20island%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Prince Edward Island health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=prince%20edward%20island%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Prince Edward Island health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=prince%20edward%20island%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Prince Edward Island health news from the last 30 days">30 Days</a>
+                <a href="https://www.princeedwardisland.ca/en/news" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Prince Edward Island government news">Government News</a>
               </div>
             </td>
           </tr>
@@ -166,10 +265,17 @@
             <td class="province-name">Yukon</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=yukon%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Yukon health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=yukon%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Yukon health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=yukon%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Yukon health news from the last 30 days">30 Days</a>
-                <a href="https://yukon.ca/en/news" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Yukon government news">Government News</a>
+                <a href="https://news.google.com/search?q=yukon%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Yukon health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=yukon%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Yukon health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=yukon%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Yukon health news from the last 30 days">30 Days</a>
+                <a href="https://yukon.ca/en/news" target="_blank" rel="noopener noreferrer" class="official-link"
+                  aria-label="Yukon government news">Government News</a>
               </div>
             </td>
           </tr>
@@ -177,11 +283,21 @@
             <td class="province-name">Northwest Territories</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=northwest%20territories%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Northwest Territories health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=northwest%20territories%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Northwest Territories health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=northwest%20territories%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Northwest Territories health news from the last 30 days">30 Days</a>
-                <a href="https://www.gov.nt.ca/en/newsroom?f%5B0%5D=field_news_department%3A91" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Northwest Territories government news">Government News</a>
-                <a href="https://www.nthssa.ca/en/newsroom" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Northwest Territories Health and Social Services Authority news">Health Authority</a>
+                <a href="https://news.google.com/search?q=northwest%20territories%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Northwest Territories health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=northwest%20territories%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Northwest Territories health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=northwest%20territories%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Northwest Territories health news from the last 30 days">30 Days</a>
+                <a href="https://www.gov.nt.ca/en/newsroom?f%5B0%5D=field_news_department%3A91" target="_blank"
+                  rel="noopener noreferrer" class="official-link"
+                  aria-label="Northwest Territories government news">Government News</a>
+                <a href="https://www.nthssa.ca/en/newsroom" target="_blank" rel="noopener noreferrer"
+                  class="official-link"
+                  aria-label="Northwest Territories Health and Social Services Authority news">Health Authority</a>
               </div>
             </td>
           </tr>
@@ -189,10 +305,17 @@
             <td class="province-name">Nunavut</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=nunavut%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Nunavut health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=nunavut%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Nunavut health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=nunavut%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Nunavut health news from the last 30 days">30 Days</a>
-                <a href="https://www.gov.nu.ca/en/newsroom" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Nunavut government news">Government News</a>
+                <a href="https://news.google.com/search?q=nunavut%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Nunavut health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=nunavut%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Nunavut health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=nunavut%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Nunavut health news from the last 30 days">30 Days</a>
+                <a href="https://www.gov.nu.ca/en/newsroom" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Nunavut government news">Government News</a>
               </div>
             </td>
           </tr>
@@ -200,47 +323,38 @@
             <td class="province-name">Canada</td>
             <td>
               <div class="links-container">
-                <a href="https://news.google.com/search?q=canada%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Canada health news from the last 7 days">7 Days</a>
-                <a href="https://news.google.com/search?q=canada%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Canada health news from the last 14 days">14 Days</a>
-                <a href="https://news.google.com/search?q=canada%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen" target="_blank" rel="noopener noreferrer" class="google-link" aria-label="Canada health news from the last 30 days">30 Days</a>
-                <a href="https://www.canada.ca/en/news.html" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Government of Canada news">Government of Canada News</a>
-                <a href="https://www.canada.ca/en/news/advanced-news-search/news-results.html?_=1716399320637&dprtmnt=publichealthagencyofcanada&start&end" target="_blank" rel="noopener noreferrer" class="official-link" aria-label="Public Health Agency of Canada news">Public Health Agency News</a>
+                <a href="https://news.google.com/search?q=canada%20health%20when%3A7d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Canada health news from the last 7 days">7 Days</a>
+                <a href="https://news.google.com/search?q=canada%20health%20when%3A14d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Canada health news from the last 14 days">14 Days</a>
+                <a href="https://news.google.com/search?q=canada%20health%20when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+                  target="_blank" rel="noopener noreferrer" class="google-link"
+                  aria-label="Canada health news from the last 30 days">30 Days</a>
+                <a href="https://www.canada.ca/en/news.html" target="_blank" rel="noopener noreferrer"
+                  class="official-link" aria-label="Government of Canada news">Government of Canada News</a>
+                <a href="https://www.canada.ca/en/news/advanced-news-search/news-results.html?_=1716399320637&dprtmnt=publichealthagencyofcanada&start&end"
+                  target="_blank" rel="noopener noreferrer" class="official-link"
+                  aria-label="Public Health Agency of Canada news">Public Health Agency News</a>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
+      <div id="no-results" class="no-results">
+        No results found matching your search.
+      </div>
     </main>
 
     <footer class="footer">
-      <p>This dashboard provides quick access to health news across Canada from both official government sources and general news coverage.</p>
+      <p>This dashboard provides quick access to health news across Canada from both official government sources and
+        general news coverage.</p>
       <div class="last-updated">Last updated: March 14, 2025</div>
-      <!-- Adding a clearfix to ensure the footer displays properly -->
-      <div style="clear: both;"></div>
     </footer>
   </div>
-  <button onclick="topFunction()" id="back-to-top-btn" title="Back to top" aria-label="Back to top">Back to top</button>
+  <button id="back-to-top-btn" title="Back to top" aria-label="Back to top">Back to top</button>
   <script src="custom-links.js"></script>
-  <script>
-    //Get the button
-    var mybutton = document.getElementById("back-to-top-btn");
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-  </script>
 </body>
+
 </html>
