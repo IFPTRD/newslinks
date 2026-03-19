@@ -15,6 +15,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to news table</a>
   <div class="container">
     <header>
       <a href="https://ifptrd.github.io" class="home-button" title="Home" aria-label="Go to home page">
@@ -27,15 +28,41 @@
       <div class="header-controls">
         <a href="index_fr.html" class="language-toggle" aria-label="Switch to French">FR</a>
       </div>
-      <h1>Health News</h1>
-      <div class="search-container">
-        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input type="text" id="search-input" class="search-input" placeholder="Search provinces..."
+      <div class="hero">
+        <div class="eyebrow">Canadian monitoring dashboard</div>
+        <h1>Health News</h1>
+        <p class="subtitle">Browse official updates and broader coverage by province, territory, or national source. Use the search box, quick filters, and edit mode to tailor the view to your workflow.</p>
+      </div>
+      <div class="status-bar" aria-live="polite">
+        <div class="status-card">
+          <span class="status-label">Visible now</span>
+          <span class="status-value" id="result-count">0 jurisdictions shown</span>
+        </div>
+        <div class="status-card">
+          <span class="status-label">Your customizations</span>
+          <span class="status-value" id="custom-count">0 customized sections</span>
+        </div>
+      </div>
+      <div class="search-panel">
+        <div class="search-row">
+          <div class="search-container">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="search-input" class="search-input" placeholder="Search provinces..."
           aria-label="Search provinces">
+            <button id="clear-search" class="search-action" type="button" hidden>Clear</button>
+          </div>
+        </div>
+        <div class="search-hint">Tip: press / to focus search instantly.</div>
+        <div class="filters" role="group" aria-label="Quick filters">
+          <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">All jurisdictions</button>
+          <button type="button" class="filter-chip" data-filter="provinces" aria-pressed="false">Provinces</button>
+          <button type="button" class="filter-chip" data-filter="territories" aria-pressed="false">Territories</button>
+          <button type="button" class="filter-chip" data-filter="national" aria-pressed="false">Canada</button>
+        </div>
       </div>
       <div class="link-labels">
         <div class="link-label"><span class="link-dot dot-google"></span> External Sources</div>
@@ -44,8 +71,9 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <table>
+        <caption>Use search or quick filters to narrow the list. Link badges show the number of sources in each row.</caption>
         <thead>
           <tr>
             <th scope="col">Jurisdiction</th>
