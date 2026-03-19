@@ -15,6 +15,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Aller au tableau</a>
   <div class="container">
     <header>
       <a href="https://ifptrd.github.io" class="home-button" title="Accueil" aria-label="Aller à la page d'accueil">
@@ -27,15 +28,29 @@
       <div class="header-controls">
         <a href="index.html" class="language-toggle" aria-label="Switch to English">EN</a>
       </div>
-      <h1>Nouvelles sur la santé</h1>
-      <div class="search-container">
-        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input type="text" id="search-input" class="search-input" placeholder="Rechercher une province..."
+      <div class="hero">
+        <h1>Nouvelles sur la santé</h1>
+        <p class="subtitle">Liens officiels et externes sur l'actualité santé pour le Canada, les provinces et les territoires.</p>
+      </div>
+      <div class="search-panel">
+        <div class="search-row">
+          <div class="search-container">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="search-input" class="search-input" placeholder="Rechercher une province..."
           aria-label="Rechercher une province">
+            <button id="clear-search" class="search-action" type="button" hidden>Effacer</button>
+          </div>
+        </div>
+        <div class="filters" role="group" aria-label="Filtres rapides">
+          <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">Toutes les juridictions</button>
+          <button type="button" class="filter-chip" data-filter="provinces" aria-pressed="false">Provinces</button>
+          <button type="button" class="filter-chip" data-filter="territories" aria-pressed="false">Territoires</button>
+          <button type="button" class="filter-chip" data-filter="national" aria-pressed="false">Canada</button>
+        </div>
       </div>
       <div class="link-labels">
         <div class="link-label"><span class="link-dot dot-google"></span> Sources externes</div>
@@ -43,7 +58,7 @@
         <button id="edit-toggle" class="edit-toggle" aria-label="Modifier les liens">Modifier</button>
       </div>
     </header>
-    <main>
+    <main id="main-content">
       <table>
         <thead>
           <tr>
