@@ -142,7 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = Array.from(container.querySelectorAll('a')).map(a => ({
       text: a.textContent,
       url: a.href,
-      className: a.className
+      className: a.className,
+      ariaLabel: a.getAttribute('aria-label')
     }));
     defaultLinks[key] = links;
     const stored = getStoredLinks(key);
@@ -278,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
         a.target = '_blank';
         a.rel = 'noopener noreferrer';
         if (link.className) a.className = link.className;
+        if (link.ariaLabel) a.setAttribute('aria-label', link.ariaLabel);
 
         const removeBtn = document.createElement('button');
         removeBtn.type = 'button';
